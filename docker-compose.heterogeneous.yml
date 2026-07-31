@@ -1,0 +1,43 @@
+# Heterogeneous capacity overlay.
+# Usage: docker compose -f docker-compose.yml -f docker-compose.heterogeneous.yml up --build
+#
+# server-1: full capacity
+# server-2: half capacity (slower)
+# server-3: quarter capacity (slowest)
+
+services:
+  backend-1:
+    environment:
+      SERVER_ID: server-1
+      CAPACITY_FACTOR: 1
+      BASE_DELAY_MS: 20
+      WORK_ITERS: 40000
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 256M
+
+  backend-2:
+    environment:
+      SERVER_ID: server-2
+      CAPACITY_FACTOR: 0.5
+      BASE_DELAY_MS: 20
+      WORK_ITERS: 40000
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 192M
+
+  backend-3:
+    environment:
+      SERVER_ID: server-3
+      CAPACITY_FACTOR: 0.25
+      BASE_DELAY_MS: 20
+      WORK_ITERS: 40000
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M

@@ -1,0 +1,21 @@
+{
+  "name": "eben-load-balancer",
+  "version": "1.0.0",
+  "description": "Custom reverse proxy load balancing engine with pluggable scheduling algorithms",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "load-balancer",
+    "reverse-proxy",
+    "round-robin",
+    "least-connections"
+  ],
+  "license": "MIT"
+}

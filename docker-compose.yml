@@ -1,0 +1,153 @@
+# Homogeneous capacity cluster + custom load balancer + Nginx baseline + dashboard
+# Usage: docker compose up --build
+# Do not run this automatically during project scaffolding.
+
+services:
+  backend-1:
+    build:
+      context: ./backends
+      # Use host network during build so npm can reach registry.npmjs.org more reliably.
+      network: host
+    container_name: eben-backend-1
+    environment:
+      SERVER_ID: server-1
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    ports:
+      - "3001:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  backend-2:
+    build:
+      context: ./backends
+      network: host
+    container_name: eben-backend-2
+    environment:
+      SERVER_ID: server-2
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    ports:
+      - "3002:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  backend-3:
+    build:
+      context: ./backends
+      network: host
+    container_name: eben-backend-3
+    environment:
+      SERVER_ID: server-3
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    ports:
+      - "3003:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  load-balancer:
+    build:
+      context: ./load-balancer
+      network: host
+    container_name: eben-load-balancer
+    environment:
+      LB_HOST: 0.0.0.0
+      LB_PORT: 8080
+      API_HOST: 0.0.0.0
+      API_PORT: 8090
+      LB_ALGORITHM: round-robin
+      LB_BACKENDS: >-
+        server-1:http://backend-1:3000,
+        server-2:http://backend-2:3000,
+        server-3:http://backend-3:3000
+      LB_METRICS_DIR: /data/metrics
+      LB_CORS_ORIGINS: "*"
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    volumes:
+      - ./metrics:/data/metrics
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
+
+  nginx-rr:
+    image: nginx:1.27-alpine
+    container_name: eben-nginx-rr
+    volumes:
+      - ./nginx/round-robin.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8081:80"
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
+
+  nginx-lc:
+    image: nginx:1.27-alpine
+    container_name: eben-nginx-lc
+    volumes:
+      - ./nginx/least-conn.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8082:80"
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      network: host
+    container_name: eben-frontend
+    environment:
+      VITE_API_BASE_URL: http://localhost:8090
+      VITE_WS_URL: ws://localhost:8090/ws
+    ports:
+      - "5173:80"
+    depends_on:
+      - load-balancer

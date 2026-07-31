@@ -1,0 +1,155 @@
+# Alternative stack when Docker image *builds* cannot reach registry.npmjs.org.
+#
+# Prerequisite (on the host, not inside Docker):
+#   cd backends && npm install
+#
+# Load balancer needs no npm packages.
+# Nginx images come from Docker Hub (not npm).
+# Frontend: run separately with `cd frontend && npm install && npm run dev`
+#   or skip it and use curl/API only.
+#
+# Usage:
+#   docker compose -f docker-compose.bind.yml up --pull missing
+
+services:
+  backend-1:
+    image: node:20-alpine
+    container_name: eben-backend-1
+    working_dir: /app
+    volumes:
+      - ./backends:/app
+    environment:
+      SERVER_ID: server-1
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    command: ["node", "src/server.js"]
+    ports:
+      - "3001:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  backend-2:
+    image: node:20-alpine
+    container_name: eben-backend-2
+    working_dir: /app
+    volumes:
+      - ./backends:/app
+    environment:
+      SERVER_ID: server-2
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    command: ["node", "src/server.js"]
+    ports:
+      - "3002:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  backend-3:
+    image: node:20-alpine
+    container_name: eben-backend-3
+    working_dir: /app
+    volumes:
+      - ./backends:/app
+    environment:
+      SERVER_ID: server-3
+      PORT: 3000
+      BASE_DELAY_MS: 25
+      WORK_ITERS: 50000
+      CAPACITY_FACTOR: 1
+    command: ["node", "src/server.js"]
+    ports:
+      - "3003:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://127.0.0.1:3000/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  load-balancer:
+    image: node:20-alpine
+    container_name: eben-load-balancer
+    working_dir: /app
+    volumes:
+      - ./load-balancer:/app
+      - ./metrics:/data/metrics
+    environment:
+      LB_HOST: 0.0.0.0
+      LB_PORT: 8080
+      API_HOST: 0.0.0.0
+      API_PORT: 8090
+      LB_ALGORITHM: round-robin
+      LB_BACKENDS: >-
+        server-1:http://backend-1:3000,
+        server-2:http://backend-2:3000,
+        server-3:http://backend-3:3000
+      LB_METRICS_DIR: /data/metrics
+      LB_CORS_ORIGINS: "*"
+    command: ["node", "src/index.js"]
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
+
+  nginx-rr:
+    image: nginx:1.27-alpine
+    container_name: eben-nginx-rr
+    volumes:
+      - ./nginx/round-robin.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8081:80"
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
+
+  nginx-lc:
+    image: nginx:1.27-alpine
+    container_name: eben-nginx-lc
+    volumes:
+      - ./nginx/least-conn.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8082:80"
+    depends_on:
+      backend-1:
+        condition: service_healthy
+      backend-2:
+        condition: service_healthy
+      backend-3:
+        condition: service_healthy
