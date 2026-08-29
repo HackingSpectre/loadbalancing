@@ -1,0 +1,42 @@
+{
+  "runId": "custom_least-connections_failure_1785533209146",
+  "algorithm": "least-connections",
+  "scenario": "failure",
+  "engine": "custom",
+  "notes": "stop backend-2 mid run",
+  "startedAt": 1785533209146,
+  "endedAt": 1785533279272,
+  "durationMs": 70126,
+  "totalRequests": 40780,
+  "errorCount": 71,
+  "errorRate": 0.001741049534085336,
+  "throughputRps": 581.5246841399766,
+  "responseTime": {
+    "mean": 32.12,
+    "p50": 27,
+    "p95": 32,
+    "p99": 37,
+    "min": 24,
+    "max": 19489
+  },
+  "byServer": {
+    "server-1": {
+      "count": 15863,
+      "errors": 0,
+      "totalTimeMs": 455221
+    },
+    "server-3": {
+      "count": 13864,
+      "errors": 0,
+      "totalTimeMs": 399682
+    },
+    "server-2": {
+      "count": 11053,
+      "errors": 71,
+      "totalTimeMs": 453227
+    }
+  },
+  "resourceSamples": 35,
+  "avgLbCpuPercent": 46.962,
+  "avgLbRssBytes": 116764203.886
+}

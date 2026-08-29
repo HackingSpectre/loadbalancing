@@ -1,0 +1,42 @@
+{
+  "runId": "custom_least-connections_steady_1785532995042",
+  "algorithm": "least-connections",
+  "scenario": "steady",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785532995043,
+  "endedAt": 1785533040188,
+  "durationMs": 45145,
+  "totalRequests": 27704,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 613.6670727655332,
+  "responseTime": {
+    "mean": 28.47,
+    "p50": 28,
+    "p95": 33,
+    "p99": 39,
+    "min": 25,
+    "max": 105
+  },
+  "byServer": {
+    "server-1": {
+      "count": 9724,
+      "errors": 0,
+      "totalTimeMs": 276552
+    },
+    "server-2": {
+      "count": 9542,
+      "errors": 0,
+      "totalTimeMs": 271555
+    },
+    "server-3": {
+      "count": 8438,
+      "errors": 0,
+      "totalTimeMs": 240634
+    }
+  },
+  "resourceSamples": 22,
+  "avgLbCpuPercent": 48.215,
+  "avgLbRssBytes": 102936576
+}

@@ -1,0 +1,42 @@
+{
+  "runId": "custom_round-robin_failure_1785533135745",
+  "algorithm": "round-robin",
+  "scenario": "failure",
+  "engine": "custom",
+  "notes": "stop backend-2 mid run",
+  "startedAt": 1785533135745,
+  "endedAt": 1785533205905,
+  "durationMs": 70160,
+  "totalRequests": 41393,
+  "errorCount": 5906,
+  "errorRate": 0.14268112965960428,
+  "throughputRps": 589.9800456100343,
+  "responseTime": {
+    "mean": 31.258,
+    "p50": 27,
+    "p95": 32,
+    "p99": 36,
+    "min": 24,
+    "max": 19660
+  },
+  "byServer": {
+    "server-1": {
+      "count": 12318,
+      "errors": 0,
+      "totalTimeMs": 348558
+    },
+    "server-3": {
+      "count": 12318,
+      "errors": 0,
+      "totalTimeMs": 357439
+    },
+    "server-2": {
+      "count": 10905,
+      "errors": 54,
+      "totalTimeMs": 598724
+    }
+  },
+  "resourceSamples": 35,
+  "avgLbCpuPercent": 41.035,
+  "avgLbRssBytes": 104099957.029
+}

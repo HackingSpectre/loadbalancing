@@ -1,0 +1,42 @@
+{
+  "runId": "custom_round-robin_burst_1785532953104",
+  "algorithm": "round-robin",
+  "scenario": "burst",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785532953105,
+  "endedAt": 1785532993286,
+  "durationMs": 40181,
+  "totalRequests": 38686,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 962.7933600457928,
+  "responseTime": {
+    "mean": 32.219,
+    "p50": 31,
+    "p95": 43,
+    "p99": 54,
+    "min": 25,
+    "max": 90
+  },
+  "byServer": {
+    "server-3": {
+      "count": 12895,
+      "errors": 0,
+      "totalTimeMs": 417283
+    },
+    "server-1": {
+      "count": 12895,
+      "errors": 0,
+      "totalTimeMs": 415581
+    },
+    "server-2": {
+      "count": 12896,
+      "errors": 0,
+      "totalTimeMs": 413561
+    }
+  },
+  "resourceSamples": 20,
+  "avgLbCpuPercent": 68.208,
+  "avgLbRssBytes": 101769216
+}

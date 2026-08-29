@@ -1,0 +1,42 @@
+{
+  "metrics": {
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 30.528899849182732,
+        "min": 25,
+        "max": 138,
+        "med": 27,
+        "p(90)": 37,
+        "p(95)": 49,
+        "p(99)": 76
+      }
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 49066,
+        "fails": 0
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 49066,
+        "rate": 980.7511643246916
+      }
+    }
+  },
+  "meta": {
+    "engine": "nginx",
+    "algorithm": "least-connections",
+    "scenario": "ramp-up",
+    "vus": 30,
+    "durationSec": 50,
+    "tool": "node-load-runner"
+  }
+}

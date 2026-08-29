@@ -9,8 +9,5 @@ __pycache__/
 .env.local
 *.log
 .DS_Store
-metrics/runs/
-metrics/k6/
-metrics/analysis/
-metrics/backend_resources.csv
+
 !.gitkeep

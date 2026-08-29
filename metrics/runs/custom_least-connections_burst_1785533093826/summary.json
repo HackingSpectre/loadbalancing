@@ -1,0 +1,42 @@
+{
+  "runId": "custom_least-connections_burst_1785533093826",
+  "algorithm": "least-connections",
+  "scenario": "burst",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785533093827,
+  "endedAt": 1785533133986,
+  "durationMs": 40159,
+  "totalRequests": 39651,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 987.3502826265594,
+  "responseTime": {
+    "mean": 32.265,
+    "p50": 31,
+    "p95": 42,
+    "p99": 50,
+    "min": 25,
+    "max": 96
+  },
+  "byServer": {
+    "server-1": {
+      "count": 13682,
+      "errors": 0,
+      "totalTimeMs": 440877
+    },
+    "server-3": {
+      "count": 12763,
+      "errors": 0,
+      "totalTimeMs": 414886
+    },
+    "server-2": {
+      "count": 13206,
+      "errors": 0,
+      "totalTimeMs": 423581
+    }
+  },
+  "resourceSamples": 20,
+  "avgLbCpuPercent": 67.971,
+  "avgLbRssBytes": 102183526.4
+}

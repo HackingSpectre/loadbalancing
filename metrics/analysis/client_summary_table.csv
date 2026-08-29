@@ -1,0 +1,15 @@
+file,engine,algorithm,scenario,requests,rps,mean_ms,p95_ms,p99_ms,error_rate
+custom_least-connections_burst_trial1.json,custom,least-connections,burst,39651,990.3,40.3,55,73,0.0
+custom_round-robin_burst_trial1.json,custom,round-robin,burst,38686,966.4,41.3,60,82,0.0
+custom_least-connections_failure_trial1.json,custom,least-connections,failure,40780,582.4,34.27,39,47,0.191
+custom_round-robin_failure_trial1.json,custom,round-robin,failure,41393,591.1,33.76,38,46,14.28
+custom_least-connections_ramp-up_trial1.json,custom,least-connections,ramp-up,41971,838.8,35.68,49,63,0.0
+custom_round-robin_ramp-up_trial1.json,custom,round-robin,ramp-up,43916,878.1,34.09,47,58,0.0
+custom_least-connections_steady_trial1.json,custom,least-connections,steady,27704,615.2,32.43,43,55,0.0
+custom_round-robin_steady_trial1.json,custom,round-robin,steady,29098,646.3,30.87,39,50,0.0
+nginx_least-connections_burst_trial1.json,nginx,least-connections,burst,51829,1294.2,30.84,51,70,0.0
+nginx_round-robin_burst_trial1.json,nginx,round-robin,burst,50815,1269.4,31.45,55,76,0.0
+nginx_least-connections_ramp-up_trial1.json,nginx,least-connections,ramp-up,49066,980.8,30.53,49,76,0.0
+nginx_round-robin_ramp-up_trial1.json,nginx,round-robin,ramp-up,49406,987.5,30.32,49,64,0.0
+nginx_least-connections_steady_trial1.json,nginx,least-connections,steady,32055,711.9,28.02,32,35,0.0
+nginx_round-robin_steady_trial1.json,nginx,round-robin,steady,32369,719.0,27.75,31,35,0.0

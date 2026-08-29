@@ -1,0 +1,42 @@
+{
+  "runId": "custom_least-connections_ramp-up_1785533041858",
+  "algorithm": "least-connections",
+  "scenario": "ramp-up",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785533041859,
+  "endedAt": 1785533092051,
+  "durationMs": 50192,
+  "totalRequests": 41971,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 836.2089576028052,
+  "responseTime": {
+    "mean": 29.994,
+    "p50": 29,
+    "p95": 38,
+    "p99": 44,
+    "min": 25,
+    "max": 100
+  },
+  "byServer": {
+    "server-1": {
+      "count": 14337,
+      "errors": 0,
+      "totalTimeMs": 428500
+    },
+    "server-2": {
+      "count": 14024,
+      "errors": 0,
+      "totalTimeMs": 419393
+    },
+    "server-3": {
+      "count": 13610,
+      "errors": 0,
+      "totalTimeMs": 410980
+    }
+  },
+  "resourceSamples": 25,
+  "avgLbCpuPercent": 59.389,
+  "avgLbRssBytes": 104343306.24
+}

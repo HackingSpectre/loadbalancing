@@ -1,0 +1,42 @@
+{
+  "runId": "custom_round-robin_steady_1785532854342",
+  "algorithm": "round-robin",
+  "scenario": "steady",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785532854344,
+  "endedAt": 1785532899473,
+  "durationMs": 45129,
+  "totalRequests": 29098,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 644.7738704602363,
+  "responseTime": {
+    "mean": 27.861,
+    "p50": 27,
+    "p95": 32,
+    "p99": 37,
+    "min": 25,
+    "max": 80
+  },
+  "byServer": {
+    "server-1": {
+      "count": 9699,
+      "errors": 0,
+      "totalTimeMs": 270614
+    },
+    "server-2": {
+      "count": 9700,
+      "errors": 0,
+      "totalTimeMs": 269570
+    },
+    "server-3": {
+      "count": 9699,
+      "errors": 0,
+      "totalTimeMs": 270516
+    }
+  },
+  "resourceSamples": 23,
+  "avgLbCpuPercent": 46.557,
+  "avgLbRssBytes": 79795956.87
+}

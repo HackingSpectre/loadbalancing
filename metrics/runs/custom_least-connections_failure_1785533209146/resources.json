@@ -1,0 +1,982 @@
+[
+  {
+    "timestamp": 1785533211075,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 42.86,
+    "lbRssBytes": 105299968,
+    "lbHeapUsedBytes": 23064256,
+    "systemLoad1": 15.46,
+    "freeMemBytes": 5035618304,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 4
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533213078,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 46.49,
+    "lbRssBytes": 104906752,
+    "lbHeapUsedBytes": 21786624,
+    "systemLoad1": 15.51,
+    "freeMemBytes": 5041856512,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 5
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 5
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 5
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533215078,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 48.9,
+    "lbRssBytes": 105152512,
+    "lbHeapUsedBytes": 18444336,
+    "systemLoad1": 15.51,
+    "freeMemBytes": 5027495936,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533217079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 49.35,
+    "lbRssBytes": 106065920,
+    "lbHeapUsedBytes": 28743840,
+    "systemLoad1": 15.51,
+    "freeMemBytes": 5041164288,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533219078,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 51.24,
+    "lbRssBytes": 104177664,
+    "lbHeapUsedBytes": 16533656,
+    "systemLoad1": 16.27,
+    "freeMemBytes": 4932231168,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 5
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533221079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 50.59,
+    "lbRssBytes": 104214528,
+    "lbHeapUsedBytes": 12479960,
+    "systemLoad1": 16.27,
+    "freeMemBytes": 4938645504,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533223079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.39,
+    "lbRssBytes": 105111552,
+    "lbHeapUsedBytes": 21596376,
+    "systemLoad1": 16.57,
+    "freeMemBytes": 4966838272,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533225079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.53,
+    "lbRssBytes": 104628224,
+    "lbHeapUsedBytes": 19295808,
+    "systemLoad1": 16.57,
+    "freeMemBytes": 4949237760,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533227079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.85,
+    "lbRssBytes": 104407040,
+    "lbHeapUsedBytes": 14444616,
+    "systemLoad1": 16.57,
+    "freeMemBytes": 4917030912,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533229079,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 49.86,
+    "lbRssBytes": 105037824,
+    "lbHeapUsedBytes": 20974248,
+    "systemLoad1": 16.92,
+    "freeMemBytes": 4905328640,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533231080,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 50.58,
+    "lbRssBytes": 104230912,
+    "lbHeapUsedBytes": 16680536,
+    "systemLoad1": 16.92,
+    "freeMemBytes": 4966580224,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 3
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533233083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 51.58,
+    "lbRssBytes": 104509440,
+    "lbHeapUsedBytes": 12481680,
+    "systemLoad1": 17.09,
+    "freeMemBytes": 4890087424,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 3
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 4
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533235083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 50.15,
+    "lbRssBytes": 104812544,
+    "lbHeapUsedBytes": 21787264,
+    "systemLoad1": 17.09,
+    "freeMemBytes": 4908953600,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533237083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 51.37,
+    "lbRssBytes": 104943616,
+    "lbHeapUsedBytes": 19961512,
+    "systemLoad1": 17.09,
+    "freeMemBytes": 4889067520,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533239083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 51.15,
+    "lbRssBytes": 104329216,
+    "lbHeapUsedBytes": 17396240,
+    "systemLoad1": 16.52,
+    "freeMemBytes": 4934410240,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533241083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 40.44,
+    "lbRssBytes": 104538112,
+    "lbHeapUsedBytes": 14317608,
+    "systemLoad1": 16.52,
+    "freeMemBytes": 4976541696,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533243083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 36.05,
+    "lbRssBytes": 104718336,
+    "lbHeapUsedBytes": 20774680,
+    "systemLoad1": 16.8,
+    "freeMemBytes": 4940713984,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533245083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 31.01,
+    "lbRssBytes": 105218048,
+    "lbHeapUsedBytes": 23349160,
+    "systemLoad1": 16.8,
+    "freeMemBytes": 4919078912,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533247083,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 31.02,
+    "lbRssBytes": 104435712,
+    "lbHeapUsedBytes": 16012104,
+    "systemLoad1": 16.8,
+    "freeMemBytes": 4899016704,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 5
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533249084,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 34.85,
+    "lbRssBytes": 105349120,
+    "lbHeapUsedBytes": 24213376,
+    "systemLoad1": 16.01,
+    "freeMemBytes": 4954750976,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 5
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533251084,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 35.72,
+    "lbRssBytes": 104931328,
+    "lbHeapUsedBytes": 18084288,
+    "systemLoad1": 16.01,
+    "freeMemBytes": 4984020992,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533253084,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 36.12,
+    "lbRssBytes": 104607744,
+    "lbHeapUsedBytes": 13281576,
+    "systemLoad1": 15.53,
+    "freeMemBytes": 4966522880,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533255087,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.3,
+    "lbRssBytes": 122073088,
+    "lbHeapUsedBytes": 20850192,
+    "systemLoad1": 15.53,
+    "freeMemBytes": 4929994752,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533257087,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.54,
+    "lbRssBytes": 113299456,
+    "lbHeapUsedBytes": 26419728,
+    "systemLoad1": 15.53,
+    "freeMemBytes": 4940972032,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 10
+      },
+      {
+        "id": "server-2",
+        "healthy": false,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 9
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533259091,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 60.43,
+    "lbRssBytes": 115707904,
+    "lbHeapUsedBytes": 32164912,
+    "systemLoad1": 14.77,
+    "freeMemBytes": 4919304192,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 4
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 4
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 2
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533261095,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 51.84,
+    "lbRssBytes": 114970624,
+    "lbHeapUsedBytes": 26706112,
+    "systemLoad1": 14.77,
+    "freeMemBytes": 4919463936,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533263097,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 47.84,
+    "lbRssBytes": 115585024,
+    "lbHeapUsedBytes": 31861336,
+    "systemLoad1": 15.43,
+    "freeMemBytes": 4847685632,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533265098,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 57.17,
+    "lbRssBytes": 140046336,
+    "lbHeapUsedBytes": 58473520,
+    "systemLoad1": 15.43,
+    "freeMemBytes": 4836192256,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533267099,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 50.58,
+    "lbRssBytes": 140103680,
+    "lbHeapUsedBytes": 54723344,
+    "systemLoad1": 15.43,
+    "freeMemBytes": 4882427904,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 5
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533269099,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 48.56,
+    "lbRssBytes": 140840960,
+    "lbHeapUsedBytes": 60172008,
+    "systemLoad1": 15.95,
+    "freeMemBytes": 4832444416,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533271099,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 52.25,
+    "lbRssBytes": 155279360,
+    "lbHeapUsedBytes": 77759552,
+    "systemLoad1": 15.95,
+    "freeMemBytes": 4784107520,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533273099,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 48.52,
+    "lbRssBytes": 155119616,
+    "lbHeapUsedBytes": 73433536,
+    "systemLoad1": 15.96,
+    "freeMemBytes": 4756344832,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533275099,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 49.24,
+    "lbRssBytes": 156409856,
+    "lbHeapUsedBytes": 82085752,
+    "systemLoad1": 15.96,
+    "freeMemBytes": 4789923840,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533277100,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 50.48,
+    "lbRssBytes": 155873280,
+    "lbHeapUsedBytes": 78726056,
+    "systemLoad1": 15.96,
+    "freeMemBytes": 4846206976,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  },
+  {
+    "timestamp": 1785533279100,
+    "runId": "custom_least-connections_failure_1785533209146",
+    "lbCpuPercent": 49.81,
+    "lbRssBytes": 155811840,
+    "lbHeapUsedBytes": 76386728,
+    "systemLoad1": 17.4,
+    "freeMemBytes": 4882829312,
+    "totalMemBytes": 16373002240,
+    "algorithm": "least-connections",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 7
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 6
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 6
+      }
+    ]
+  }
+]

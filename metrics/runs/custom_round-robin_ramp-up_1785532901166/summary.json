@@ -1,0 +1,42 @@
+{
+  "runId": "custom_round-robin_ramp-up_1785532901166",
+  "algorithm": "round-robin",
+  "scenario": "ramp-up",
+  "engine": "custom",
+  "notes": "automated evaluation",
+  "startedAt": 1785532901168,
+  "endedAt": 1785532951327,
+  "durationMs": 50159,
+  "totalRequests": 43916,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 875.5357961681852,
+  "responseTime": {
+    "mean": 29.128,
+    "p50": 28,
+    "p95": 36,
+    "p99": 41,
+    "min": 25,
+    "max": 96
+  },
+  "byServer": {
+    "server-3": {
+      "count": 14639,
+      "errors": 0,
+      "totalTimeMs": 428494
+    },
+    "server-1": {
+      "count": 14639,
+      "errors": 0,
+      "totalTimeMs": 425958
+    },
+    "server-2": {
+      "count": 14638,
+      "errors": 0,
+      "totalTimeMs": 424714
+    }
+  },
+  "resourceSamples": 25,
+  "avgLbCpuPercent": 58.6,
+  "avgLbRssBytes": 100036935.68
+}

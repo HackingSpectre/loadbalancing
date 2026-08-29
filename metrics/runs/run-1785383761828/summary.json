@@ -1,0 +1,26 @@
+{
+  "runId": "run-1785383761828",
+  "algorithm": "least-connections",
+  "scenario": "steady",
+  "engine": "custom",
+  "notes": "",
+  "startedAt": 1785383761828,
+  "endedAt": 1785383786249,
+  "durationMs": 24421,
+  "totalRequests": 0,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 0,
+  "responseTime": {
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "p99": null,
+    "min": null,
+    "max": null
+  },
+  "byServer": {},
+  "resourceSamples": 13,
+  "avgLbCpuPercent": 0.417,
+  "avgLbRssBytes": 55146338.462
+}
