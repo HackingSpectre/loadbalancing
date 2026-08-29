@@ -1,0 +1,42 @@
+{
+  "runId": "ui_round-robin_failure_1788021012331",
+  "algorithm": "round-robin",
+  "scenario": "failure",
+  "engine": "custom",
+  "notes": "Executed from operator dashboard",
+  "startedAt": 1788021012332,
+  "endedAt": 1788021028750,
+  "durationMs": 16418,
+  "totalRequests": 5674,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 345.5962967474723,
+  "responseTime": {
+    "mean": 26.404,
+    "p50": 26,
+    "p95": 28,
+    "p99": 30,
+    "min": 25,
+    "max": 55
+  },
+  "byServer": {
+    "server-1": {
+      "count": 1891,
+      "errors": 0,
+      "totalTimeMs": 49982
+    },
+    "server-3": {
+      "count": 1892,
+      "errors": 0,
+      "totalTimeMs": 49952
+    },
+    "server-2": {
+      "count": 1891,
+      "errors": 0,
+      "totalTimeMs": 49884
+    }
+  },
+  "resourceSamples": 8,
+  "avgLbCpuPercent": 31.24,
+  "avgLbRssBytes": 72089088
+}

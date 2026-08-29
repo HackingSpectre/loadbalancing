@@ -53,4 +53,14 @@ export const api = {
     }),
   listRuns: () => request('/api/metrics/runs'),
   getRun: (runId) => request(`/api/metrics/runs/${encodeURIComponent(runId)}`),
+  startScenario: (payload) =>
+    request('/api/scenario/start', {
+      method: 'POST',
+      body: JSON.stringify(payload || {}),
+    }),
+  stopScenario: () =>
+    request('/api/scenario/stop', {
+      method: 'POST',
+      body: JSON.stringify({}),
+    }),
 };

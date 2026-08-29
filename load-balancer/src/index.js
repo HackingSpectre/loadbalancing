@@ -8,6 +8,7 @@ const HealthChecker = require('./health/healthChecker');
 const MetricsCollector = require('./metrics/collector');
 const ReverseProxy = require('./proxy/reverseProxy');
 const ControlServer = require('./api/controlServer');
+const ScenarioRunner = require('./scenarios/scenarioRunner');
 
 async function main() {
   const serverPool = new ServerPool(config.backends);
@@ -17,6 +18,7 @@ async function main() {
     serverPool,
     schedulerManager,
     metrics: null, // set below after metrics created
+    scenarioRunner: null, // set below after scenarioRunner created
     corsOrigins: (process.env.LB_CORS_ORIGINS || '*').split(',').map((s) => s.trim()),
   });
 
@@ -35,7 +37,16 @@ async function main() {
     onEvent: (event) => controlServer.broadcast(event),
   });
 
+  const scenarioRunner = new ScenarioRunner({
+    schedulerManager,
+    metrics,
+    serverPool,
+    proxyPort: config.proxy.port,
+    onEvent: (event) => controlServer.broadcast(event),
+  });
+
   controlServer.metrics = metrics;
+  controlServer.scenarioRunner = scenarioRunner;
 
   const healthChecker = new HealthChecker({
     serverPool,

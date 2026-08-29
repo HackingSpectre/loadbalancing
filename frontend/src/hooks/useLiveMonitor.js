@@ -17,6 +17,8 @@ export function useLiveMonitor() {
   const [routingEvents, setRoutingEvents] = useState([]);
   const [resourceSeries, setResourceSeries] = useState([]);
   const [runInfo, setRunInfo] = useState({ active: false });
+  const [scenarioState, setScenarioState] = useState({ running: false });
+  const [selectedScenario, setSelectedScenario] = useState('steady');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const socketRef = useRef(null);
@@ -30,6 +32,12 @@ export function useLiveMonitor() {
       setAlgorithm(status.algorithm);
       setServers(status.servers || []);
       setRunInfo(status.run || { active: false });
+      if (status.scenario) {
+        setScenarioState(status.scenario);
+        if (status.scenario.scenario) setSelectedScenario(status.scenario.scenario);
+      } else if (status.run?.meta?.scenario) {
+        setSelectedScenario(status.run.meta.scenario);
+      }
       setAlgorithms(algos.algorithms || []);
       setError(null);
     } catch (err) {
@@ -54,6 +62,12 @@ export function useLiveMonitor() {
           setAlgorithm({ name: event.algorithm });
           setServers(event.servers || []);
           if (event.live?.run) setRunInfo(event.live.run);
+          if (event.scenario) {
+            setScenarioState(event.scenario);
+            if (event.scenario.scenario) setSelectedScenario(event.scenario.scenario);
+          } else if (event.live?.run?.meta?.scenario) {
+            setSelectedScenario(event.live.run.meta.scenario);
+          }
           if (event.live?.requests) {
             setRoutingEvents(event.live.requests.slice(-MAX_ROUTING_EVENTS).reverse());
           }
@@ -129,9 +143,22 @@ export function useLiveMonitor() {
               startedAt: event.startedAt,
               meta: event.meta,
             });
+            if (event.meta?.scenario) setSelectedScenario(event.meta.scenario);
           } else if (event.action === 'end') {
             setRunInfo({ active: false });
           }
+          return;
+        }
+
+        if (event.type === 'scenario_progress') {
+          setScenarioState({ running: true, ...event });
+          if (event.scenario) setSelectedScenario(event.scenario);
+          return;
+        }
+
+        if (event.type === 'scenario_finished') {
+          setScenarioState({ running: false });
+          return;
         }
       },
     });
@@ -161,6 +188,18 @@ export function useLiveMonitor() {
     return result;
   }, []);
 
+  const startScenario = useCallback(async (payload) => {
+    const res = await api.startScenario(payload);
+    setScenarioState({ running: true, ...res });
+    return res;
+  }, []);
+
+  const stopScenario = useCallback(async () => {
+    const res = await api.stopScenario();
+    setScenarioState({ running: false });
+    return res;
+  }, []);
+
   return {
     connected,
     algorithm,
@@ -169,11 +208,16 @@ export function useLiveMonitor() {
     routingEvents,
     resourceSeries,
     runInfo,
+    scenarioState,
+    selectedScenario,
+    setSelectedScenario,
     error,
     loading,
     refreshStatus,
     switchAlgorithm,
     startRun,
     endRun,
+    startScenario,
+    stopScenario,
   };
 }

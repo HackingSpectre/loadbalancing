@@ -1,0 +1,86 @@
+[
+  {
+    "timestamp": 1788021538554,
+    "runId": "ui_round-robin_steady_1788021537791",
+    "lbCpuPercent": 31.84,
+    "lbRssBytes": 58507264,
+    "lbHeapUsedBytes": 6806040,
+    "systemLoad1": 2.2,
+    "freeMemBytes": 3918528512,
+    "totalMemBytes": 16373002240,
+    "algorithm": "round-robin",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 2
+      }
+    ]
+  },
+  {
+    "timestamp": 1788021540554,
+    "runId": "ui_round-robin_steady_1788021537791",
+    "lbCpuPercent": 64.39,
+    "lbRssBytes": 62566400,
+    "lbHeapUsedBytes": 8330128,
+    "systemLoad1": 2.2,
+    "freeMemBytes": 3835420672,
+    "totalMemBytes": 16373002240,
+    "algorithm": "round-robin",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 3
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 3
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 4
+      }
+    ]
+  },
+  {
+    "timestamp": 1788021542554,
+    "runId": "ui_round-robin_steady_1788021537791",
+    "lbCpuPercent": 47.64,
+    "lbRssBytes": 65781760,
+    "lbHeapUsedBytes": 8848504,
+    "systemLoad1": 2.58,
+    "freeMemBytes": 3650076672,
+    "totalMemBytes": 16373002240,
+    "algorithm": "round-robin",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 4
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 4
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 4
+      }
+    ]
+  }
+]

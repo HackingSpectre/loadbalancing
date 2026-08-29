@@ -1,0 +1,42 @@
+{
+  "runId": "ui_round-robin_burst_1788021548346",
+  "algorithm": "round-robin",
+  "scenario": "burst",
+  "engine": "custom",
+  "notes": "Executed from operator dashboard",
+  "startedAt": 1788021548346,
+  "endedAt": 1788021558965,
+  "durationMs": 10619,
+  "totalRequests": 905,
+  "errorCount": 0,
+  "errorRate": 0,
+  "throughputRps": 85.22459741971937,
+  "responseTime": {
+    "mean": 26.796,
+    "p50": 26,
+    "p95": 29,
+    "p99": 35,
+    "min": 25,
+    "max": 37
+  },
+  "byServer": {
+    "server-1": {
+      "count": 302,
+      "errors": 0,
+      "totalTimeMs": 8110
+    },
+    "server-2": {
+      "count": 302,
+      "errors": 0,
+      "totalTimeMs": 8094
+    },
+    "server-3": {
+      "count": 301,
+      "errors": 0,
+      "totalTimeMs": 8046
+    }
+  },
+  "resourceSamples": 6,
+  "avgLbCpuPercent": 7.658,
+  "avgLbRssBytes": 66791424
+}

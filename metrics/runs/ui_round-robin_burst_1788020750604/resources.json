@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": 1788020751566,
+    "runId": "ui_round-robin_burst_1788020750604",
+    "lbCpuPercent": 17.26,
+    "lbRssBytes": 56754176,
+    "lbHeapUsedBytes": 6064288,
+    "systemLoad1": 1.36,
+    "freeMemBytes": 3893899264,
+    "totalMemBytes": 16373002240,
+    "algorithm": "round-robin",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 0
+      }
+    ]
+  },
+  {
+    "timestamp": 1788020753566,
+    "runId": "ui_round-robin_burst_1788020750604",
+    "lbCpuPercent": 27.37,
+    "lbRssBytes": 56659968,
+    "lbHeapUsedBytes": 6660248,
+    "systemLoad1": 1.36,
+    "freeMemBytes": 3916935168,
+    "totalMemBytes": 16373002240,
+    "algorithm": "round-robin",
+    "servers": [
+      {
+        "id": "server-1",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-2",
+        "healthy": true,
+        "activeConnections": 1
+      },
+      {
+        "id": "server-3",
+        "healthy": true,
+        "activeConnections": 2
+      }
+    ]
+  }
+]

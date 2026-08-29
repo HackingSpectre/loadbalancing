@@ -3,20 +3,28 @@ import PageHeader from '../components/ui/PageHeader';
 import Alert from '../components/ui/Alert';
 import { formatAlgorithm, formatTime } from '../utils/format';
 
-export default function ControlPage({ monitor }) {
+export default function ControlPage({ monitor = {} }) {
   const {
     algorithm,
-    algorithms,
+    algorithms = [],
     runInfo,
+    scenarioState,
+    selectedScenario = 'steady',
+    setSelectedScenario,
     switchAlgorithm,
     startRun,
     endRun,
+    startScenario,
+    stopScenario,
     refreshStatus,
+    error,
   } = monitor;
 
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState(null);
-  const [scenario, setScenario] = useState('steady');
+  const [localScenario, setLocalScenario] = useState('steady');
+  const scenario = selectedScenario || localScenario;
+  const setScenario = setSelectedScenario || setLocalScenario;
   const [notes, setNotes] = useState('');
 
   async function handleSwitch(name) {
@@ -30,6 +38,39 @@ export default function ControlPage({ monitor }) {
       });
     } catch (err) {
       setMessage({ type: 'err', text: err.message || 'Failed to switch algorithm' });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleRunScenario() {
+    setBusy(true);
+    setMessage(null);
+    try {
+      await startScenario({
+        scenario,
+        algorithm: algorithm?.name,
+        notes,
+      });
+      setMessage({
+        type: 'ok',
+        text: `Running "${scenario}" scenario on ${formatAlgorithm(algorithm?.name)}.`,
+      });
+    } catch (err) {
+      setMessage({ type: 'err', text: err.message || 'Failed to run scenario' });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleStopScenario() {
+    setBusy(true);
+    try {
+      await stopScenario();
+      setMessage({ type: 'ok', text: 'Scenario stopped.' });
+      await refreshStatus();
+    } catch (err) {
+      setMessage({ type: 'err', text: err.message || 'Failed to stop scenario' });
     } finally {
       setBusy(false);
     }
@@ -73,7 +114,10 @@ export default function ControlPage({ monitor }) {
     }
   }
 
-  const algoList = algorithms.length
+  const isRunningScenario = Boolean(scenarioState?.running);
+  const isRecording = Boolean(runInfo?.active) || isRunningScenario;
+
+  const algoList = algorithms?.length
     ? algorithms
     : [
         { name: 'round-robin', label: 'Round Robin' },
@@ -86,6 +130,10 @@ export default function ControlPage({ monitor }) {
         title="Control"
         description="Select the active scheduling algorithm and manage metrics recording for experimental runs."
       />
+
+      {error ? (
+        <Alert tone="error">{error}</Alert>
+      ) : null}
 
       {message ? (
         <Alert tone={message.type === 'err' ? 'error' : 'neutral'}>
@@ -151,17 +199,17 @@ export default function ControlPage({ monitor }) {
           <dl className="mt-5 grid grid-cols-2 gap-2">
             <MetaTile
               label="Status"
-              value={runInfo?.active ? 'Recording' : 'Idle'}
+              value={isRunningScenario ? 'Running Scenario' : runInfo?.active ? 'Recording' : 'Idle'}
             />
             <MetaTile
               label="Run ID"
-              value={runInfo?.runId || 'None'}
+              value={scenarioState?.runId || runInfo?.runId || 'None'}
               mono
             />
-            <MetaTile label="Started" value={formatTime(runInfo?.startedAt)} />
+            <MetaTile label="Started" value={formatTime(scenarioState?.startedAt || runInfo?.startedAt)} />
             <MetaTile
               label="Algorithm tag"
-              value={formatAlgorithm(runInfo?.meta?.algorithm || algorithm?.name)}
+              value={formatAlgorithm(scenarioState?.algorithm || runInfo?.meta?.algorithm || algorithm?.name)}
             />
           </dl>
 
@@ -172,13 +220,12 @@ export default function ControlPage({ monitor }) {
                 className="field"
                 value={scenario}
                 onChange={(e) => setScenario(e.target.value)}
-                disabled={busy || runInfo?.active}
+                disabled={busy || isRecording}
               >
                 <option value="steady">Steady</option>
                 <option value="ramp-up">Ramp up</option>
                 <option value="burst">Burst</option>
                 <option value="failure">Single server failure</option>
-                <option value="heterogeneous">Heterogeneous capacity</option>
               </select>
             </label>
 
@@ -189,29 +236,52 @@ export default function ControlPage({ monitor }) {
                 rows={3}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                disabled={busy || runInfo?.active}
+                disabled={busy || isRecording}
                 placeholder="Trial number, load profile, or cluster mode"
               />
             </label>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2">
+            {isRunningScenario ? (
+              <button
+                type="button"
+                className="btn-danger-solid"
+                disabled={busy}
+                onClick={handleStopScenario}
+              >
+                Stop scenario
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="btn-primary"
+                disabled={busy || isRecording}
+                onClick={handleRunScenario}
+              >
+                Run scenario
+              </button>
+            )}
+
             <button
               type="button"
-              className="btn-primary"
-              disabled={busy || runInfo?.active}
+              className="btn-outline"
+              disabled={busy || isRecording}
               onClick={handleStartRun}
             >
-              Start metrics run
+              Start manual recording
             </button>
-            <button
-              type="button"
-              className="btn-danger-solid"
-              disabled={busy || !runInfo?.active}
-              onClick={handleEndRun}
-            >
-              End and export
-            </button>
+
+            {runInfo?.active && !isRunningScenario ? (
+              <button
+                type="button"
+                className="btn-danger-solid"
+                disabled={busy}
+                onClick={handleEndRun}
+              >
+                End and export
+              </button>
+            ) : null}
           </div>
         </section>
       </div>

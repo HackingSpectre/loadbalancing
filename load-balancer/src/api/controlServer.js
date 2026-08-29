@@ -22,6 +22,7 @@ class ControlServer {
     this.serverPool = options.serverPool;
     this.schedulerManager = options.schedulerManager;
     this.metrics = options.metrics;
+    this.scenarioRunner = options.scenarioRunner || null;
     this.corsOrigins = options.corsOrigins || ['*'];
     this.server = null;
     /** @type {Map<string, import('net').Socket>} */
@@ -168,12 +169,35 @@ class ControlServer {
         return this._json(res, 200, run);
       }
 
+      if (req.method === 'GET' && path === '/api/scenario/status') {
+        const status = this.scenarioRunner ? this.scenarioRunner.getStatus() : { running: false };
+        return this._json(res, 200, status);
+      }
+
+      if (req.method === 'POST' && path === '/api/scenario/start') {
+        if (!this.scenarioRunner) {
+          return this._json(res, 503, { error: 'Scenario runner not configured' });
+        }
+        const body = (await readJson(req)) || {};
+        const result = await this.scenarioRunner.startScenario(body);
+        return this._json(res, 200, result);
+      }
+
+      if (req.method === 'POST' && path === '/api/scenario/stop') {
+        if (!this.scenarioRunner) {
+          return this._json(res, 503, { error: 'Scenario runner not configured' });
+        }
+        const result = await this.scenarioRunner.stopScenario();
+        return this._json(res, 200, result);
+      }
+
       if (req.method === 'GET' && path === '/api/status') {
         const active = this.schedulerManager.getActive();
         return this._json(res, 200, {
           algorithm: { name: active.name, label: active.label },
           servers: this.serverPool.getStatus(),
           run: this.metrics.getRunInfo(),
+          scenario: this.scenarioRunner ? this.scenarioRunner.getStatus() : { running: false },
           live: {
             recentRequestCount: this.metrics.liveRequests.length,
             recentResourceCount: this.metrics.liveResources.length,
@@ -244,6 +268,7 @@ class ControlServer {
           timestamp: Date.now(),
           algorithm: this.schedulerManager.getActiveName(),
           servers: this.serverPool.getStatus(),
+          scenario: this.scenarioRunner ? this.scenarioRunner.getStatus() : { running: false },
           live: this.metrics.getLive(),
         })
       );
